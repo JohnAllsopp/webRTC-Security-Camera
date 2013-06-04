@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<title>Motion activated Security Camera with webRTC and devicemotion/orientation</title>
+    <head>
+    
+    <script src="JS/motionDetector.js"></script>
+    <script src="JS/securityCamera.js"></script>
+    <link type="text/css" href="style.css" rel="stylesheet">
+    <script>
+    
+    function initializePage() {
+    	//initialize the motionDetector and camera
+		var video = document.querySelector("video")
+		var canvas = document.querySelector("canvas")
+		
+		motionDetector.start(isInMotion); //start the motion detector with a callback to call when motion is detected 
+		videoCamera.initialize(video, canvas)
+	}
+		
+function isInMotion() {
+	//a callback for the motionDetector to call when the device is in motion
+	
+	var banner = document.querySelector('#wasShaken');
+	banner.innerHTML = "intruder alert";
+	banner.classList.add("alert")
+	var snapshotImage = videoCamera.takeSnapshot()
+	
+	if (snapshotImage) {
+		document.querySelector("img").src = snapshotImage
+		
+		//also save snapshot to localStorage?
+		
+		
+		//send snapshot via email, or some other way to alert 
+	}
+}
+
+function clearMessage() {
+	//clear the "intruder alert" message
+	var banner = document.querySelector('#wasShaken');
+	banner.innerHTML = "&nbsp;";
+	banner.classList.remove("alert")
+}
+
+var intervalID = window.setInterval(clearMessage, 5000);
+//if no motion detected after 5 seconds, stop the message
+
+window.addEventListener("load", initializePage)
+	
+        </script>
+    </head>
+    <body>
+	    
+        <video autoplay style="display:none;"></video>
+<div id="wasShaken">&nbsp;</div>
+<img src="">
+<canvas style="display:none;" width="1000" height="1000"></canvas>
+
+    </body>
+</html>

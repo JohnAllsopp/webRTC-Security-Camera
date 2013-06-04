@@ -1,0 +1,59 @@
+.alert{
+  animation-name: alertMe;
+  animation-duration: 1s;
+  animation-delay: 0s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forward;
+  animation-direction: alternate;
+
+  -webkit-animation-name: alertMe;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-delay: 0s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: ease-in-out;
+  -webkit-animation-fill-mode: forward;
+  -webkit-animation-direction: alternate;
+
+  -moz-animation-name: alertMe;
+  -moz-animation-duration: 1s;
+  -moz-animation-delay: 0s;
+  -moz-animation-iteration-count: infinite;
+  -moz-animation-timing-function: ease-in-out;
+  -moz-animation-fill-mode: forward;
+  -moz-animation-direction: alternate;
+  position: relative;  
+}
+
+@keyframes alertMe {
+
+  0% {
+background-color: rgba(255, 0, 0, 1)
+  }
+
+  100% {
+background-color: rgba(255, 0, 0, 0)
+  }
+}
+
+@-webkit-keyframes alertMe {
+
+  0% {
+background-color: rgba(255, 0, 0, 1)
+  }
+
+  100% {
+background-color: rgba(255, 0, 0, 0)
+  }
+}
+
+@-moz-keyframes alertMe {
+
+  0% {
+background-color: rgba(255, 0, 0, 1)
+  }
+
+  100% {
+background-color: rgba(255, 0, 0, 0)
+  }
+}

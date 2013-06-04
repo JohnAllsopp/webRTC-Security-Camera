@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<title>webRTC</title>
+    <head>
+        
+    <script>
+    
+    var localMediaStream = null;
+		
+    function init() {
+    
+    video = document.querySelector('video');
+	canvas = document.querySelector('canvas');
+	ctx = canvas.getContext('2d');
+
+    
+    navigator.getMedia = ( navigator.getUserMedia ||
+		navigator.webkitGetUserMedia ||
+		navigator.mozGetUserMedia ||
+		navigator.msGetUserMedia);
+
+    
+		//localMediaStream = null;
+		
+		video.addEventListener('click', snapshot, false);
+
+	// Not showing vendor prefixes or code that works cross-browser.
+	navigator.getMedia({video: true}, function(stream) {
+	  video.src = window.URL.createObjectURL(stream);
+	  localMediaStream = stream;
+	}, onFailSoHard);
+
+	}
+	
+	function onFailSoHard() {
+		alert("ouch")
+	}
+	
+	function snapshot() {
+	  if (localMediaStream) {
+		ctx.drawImage(video, 0, 0);
+		var shot = canvas.toDataURL('image/png');
+		
+		document.querySelector('img').src = canvas.toDataURL('image/png');
+	  }
+	}
+
+	window.onload = init
+	
+        
+		</script>
+    </head>
+    <body>
+        <video autoplay></video>
+<img src="">
+<canvas style="display:block;"></canvas>
+
+    </body>
+</html>
