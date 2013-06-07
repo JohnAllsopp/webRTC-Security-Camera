@@ -59,7 +59,7 @@ var motionDetector = {
 		//algorithm shamelessly ripped off from 
 		//http://stackoverflow.com/questions/8310250/how-to-count-steps-using-an-accelerometer
 
-		var threshold = .8; //we can calibrate sentivity to motion, the lower the more sensitive 
+		var threshold = .5; //we can calibrate sentivity to motion, the lower the more sensitive 
 		var inMotion = false; //this will be true if the device is in motion
 		
 		var acX = Math.abs(motionData.acceleration.x)
