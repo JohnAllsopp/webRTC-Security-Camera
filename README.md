@@ -8,3 +8,4 @@ Uses deviceMotionEvents and deviceOrientationEvents plus getUserMedia to capture
 This is offered purely as a proof of concept, so don't rely on it to save your home or office from theft! Please!
 
 [Read a detailed article on how it works at Web Directions](http://www.webdirections.org/?p=4693)
+[See it in action in Chrome or on Blackberry 10](http://webdirections.org/experiments/securitycamera/)
